@@ -7,7 +7,7 @@ public class Task1a {
 		System.out.println("HI");
 		Task1a Ap = new Task1a();
 		Ap.k = 123;
-		System.out.println("Ap.k  = "+ Ap.k );
+		System.out.println("Ap.k2 = "+ Ap.k );
 	}
 
 }
