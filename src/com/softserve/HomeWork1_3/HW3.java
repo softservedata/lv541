@@ -8,47 +8,48 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class HW3 {
+	public float c,t,count;
+	public String name;
+	public HW3(String n) {
+		name = n;	
+	}
 
+	public void get_t() throws ParseException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		SimpleDateFormat data_type= new SimpleDateFormat("HH:mm:ss");
+		
+		System.out.print("The "+name+" talks start from  ");
+		Date t1F = data_type.parse(br.readLine());
+		System.out.print(" to ");
+		
+		Date t1T = data_type.parse(br.readLine());
+		t = (float)TimeUnit.MILLISECONDS.toSeconds(t1T.getTime()-t1F.getTime())/60; 
+		count = c*t;
+	}
 	public static void main(String[] args) throws ParseException, IOException {
-		float c1,c2,c3,t1,t2,t3;	
-		SimpleDateFormat data_type= new SimpleDateFormat("HH:mm:ss");	
+		HW3 call1 = new HW3("first");
+		HW3 call2 = new HW3("second");
+		HW3 call3 = new HW3("third");	
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.println("Enter the units per minute:");
 		System.out.print("c1 = ");
-		c1 = Float.parseFloat(br.readLine());
+		call1.c = Float.parseFloat(br.readLine());
 		System.out.print("c2 = ");
-		c2 = Float.parseFloat(br.readLine());
+		call2.c = Float.parseFloat(br.readLine());
 		System.out.print("c3 = ");
-		c3 = Float.parseFloat(br.readLine());
+		call3.c = Float.parseFloat(br.readLine());
 		
-		System.out.print("The first talks start from  ");
-		Date t1F = data_type.parse(br.readLine());
-		System.out.print(" to ");
-		Date t1T = data_type.parse(br.readLine());
-		t1 = (float)TimeUnit.MILLISECONDS.toSeconds(t1T.getTime()-t1F.getTime())/60;
-		
-		System.out.print("The second talks start from  ");
-		Date t2F = data_type.parse(br.readLine());
-		System.out.print(" to ");
-		Date t2T = data_type.parse(br.readLine());
-		t2 = (float)TimeUnit.MILLISECONDS.toSeconds(t2T.getTime()-t2F.getTime())/60;
-		
-		System.out.print("The third talks start from  ");
-		Date t3F = data_type.parse(br.readLine());
-		System.out.print(" to ");
-		Date t3T = data_type.parse(br.readLine());
-		t3 = (float)TimeUnit.MILLISECONDS.toSeconds(t3T.getTime()-t3F.getTime())/60;
+		call1.get_t();
+		call2.get_t();
+		call3.get_t();
 		
 		
-		float count1 = c1*t1;
-		float count2 = c2*t2;
-		float count3 = c3*t3;
-		System.out.println("calculations for the first call = "+count1);
-		System.out.println("calculations for the second call = "+count2);
-		System.out.println("calculations for the third call = "+count3);
-		System.out.println("together = "+(count1+count2+count3));
+		System.out.println("calculations for the first call = "+call1.count);
+		System.out.println("calculations for the second call = "+call2.count);
+		System.out.println("calculations for the third call = "+call3.count);
+		System.out.println("together = "+(call1.count+call2.count+call3.count));
 		
 			
 		
