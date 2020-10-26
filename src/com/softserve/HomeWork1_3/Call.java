@@ -16,7 +16,7 @@ public class Call {
 
 	public void get_count() throws ParseException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Enter the units per minute for the "+name+" call =/");
+		System.out.print("Enter the units per minute for the "+name+" call = ");
 		c = Float.parseFloat(br.readLine());
 		
 		SimpleDateFormat data_type= new SimpleDateFormat("HH:mm:ss");
