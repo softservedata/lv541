@@ -8,7 +8,7 @@ public class Task2 {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("how are you?");
+		System.out.println("how are you? ");
 		String answer = br.readLine();
 		br.close();
 		System.out.println("You are "+answer);

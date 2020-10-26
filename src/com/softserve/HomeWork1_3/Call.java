@@ -44,17 +44,8 @@ public class Call {
 		System.out.println("calculations for the "+call2.name+" call = "+call2.count);
 		System.out.println("calculations for the "+call3.name+" call = "+call3.count);
 		System.out.println("together = "+(call1.count+call2.count+call3.count));
-		
-<<<<<<< HEAD
-=======
-			
-		
->>>>>>> bfed079db011a96eba5e620b0b6452fc10206d53
+
 
 	}
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bfed079db011a96eba5e620b0b6452fc10206d53

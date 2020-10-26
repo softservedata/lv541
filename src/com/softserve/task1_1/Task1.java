@@ -10,10 +10,10 @@ public class Task1 {
 		int a,b;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		//enter a
-		System.out.print("enter a=");
+		System.out.print("enter a = ");
 		a = Integer.parseInt(br.readLine());
 		//enter b
-		System.out.print("enter b=");
+		System.out.print("enter b = ");
 		b = Integer.parseInt(br.readLine());
 		br.close();
 		//calculate:

@@ -11,7 +11,7 @@ public class HW2 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("What is your name?");
 		name = br.readLine();
-		System.out.println("Where are you live, "+name);
+		System.out.println("Where are you live, "+name+"?");
 		address = br.readLine();
 		br.close();
 		System.out.println("Your name is "+name+" and your adress is "+address);
