@@ -14,7 +14,7 @@ public class myConsole {
      int age = scan.nextInt();
     
      System.out.println("Where do you live?");
-     String address = scan.next();
+     String address = scan.nextLine();
      
      System.out.print("Your name is " + name + "Your age is " + age + "You live in" + address);
      
