@@ -3,8 +3,11 @@ package begmst;
 import java.util.*;
 
 public class Main {
+	
+	private int i = 12;
 
 	public static void main(String[] args) {
+		System.out.println(i);
 		System.out.println("Hello World!");
 		System.out.print("Enter your name: ");
 		Scanner s = new Scanner(System.in);
