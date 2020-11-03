@@ -28,11 +28,16 @@ public class Numbers {
         System.out.println("Max = " + Collections.max(list));
         System.out.println("Min = " + Collections.min(list));
 
+        System.out.println("Task 3");
 
-
-
+        HTTPError [] e = HTTPError.values();
+        for (int i = 0; i < e.length ; i++) {
+            HTTPError.getHTTPError(i);
 
         }
+
+
+    }
         }
 
 
