@@ -1,80 +1,66 @@
 package com.softserve.edu;
 
+import java.util.Objects;
 
 public class Car {
-	 private int yearModel;
-	 private String make;
-	 private int speed;
+	 private String type;
+	 private long yearOfProduction;;
+	 private double engineCapacity;
+	
+	 //  COnstructor 
+	 public Car(String type, long yearOfProduction, double engineCapacity) {
+		this.type = type;
+		this.yearOfProduction = yearOfProduction;
+		this.engineCapacity = engineCapacity;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public long getYearOfProduction() {
+		return yearOfProduction;
+	}
+
+	public void setYearOfProduction(long yearOfProduction) {
+		this.yearOfProduction = yearOfProduction;
+	}
+
+	public double getEngineCapacity() {
+		return engineCapacity;
+	}
+
+	public void setEngineCapacity(double engineCapacity) {
+		this.engineCapacity = engineCapacity;
+	}
+
+	  @Override
+	    public boolean equals(Object o) {
+	        if (this == o) return true;
+	        if (o == null || getClass() != o.getClass()) return false;
+	        Car car = (Car) o;
+	        return type.equals(car.type);
+	    }
+
+	    @Override
+	    public int hashCode() {
+	        return Objects.hash(type);
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "Car: " +
+	                " type='" + type + '\'' +
+	                ", yearOfProduction=" + yearOfProduction +
+	                ", engineCapacity=" + engineCapacity;
+	    }
+	}
 	
 	
-	 public Car(int yearModel, String make, int speed) {
-		this.yearModel = yearModel;
-		this.make = make;
-		this.speed = speed;
-		speed =0;
-	}
 
-	public int getYearModel() {
-		return yearModel;
-	}
 
-	public void setYearModel(int yearModel) {
-		this.yearModel = yearModel;
-	}
-
-	public String getMake() {
-		return make;
-	}
-
-	public void setMake(String make) {
-		this.make = make;
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	} 
-	public void accelerate() {
-		speed +=5;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + yearModel;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Car other = (Car) obj;
-		if (yearModel != other.yearModel)
-			return false;
-		return true;
-	}
-//	чому помилка?
-	
-	@Override
-	public int compareTo (Object o) {
-		Car object =(Car) o;
-		
-		if (this.getYearModel() < object.getYearModel()) {
-			return -1;
-		} else if (this.getYearModel()> object.getYearModel()) {
-			return 1;
-		} else {
-			return 0;
-		} 
-	}}
-	 
 
