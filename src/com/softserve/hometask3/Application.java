@@ -20,7 +20,7 @@ public class Application {
         }
     }
 
-    private static void task2() {
+    public static void task2() {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         int a1 = 0;
@@ -57,7 +57,7 @@ public class Application {
                 "max = " + max);
     }
 
-    private static void task1() {
+    public static void task1() {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         float a1 = 0;
@@ -85,5 +85,4 @@ public class Application {
         }
 
     }
-
 }
