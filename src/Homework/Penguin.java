@@ -3,9 +3,9 @@ package Homework;
 public class Penguin extends NonFlyingBird {
 	private String name;
 
-	public Penguin(boolean feathers, int layEggs, String name) {
+	public Penguin(String name,boolean feathers, int layEggs) {
 		super(feathers, layEggs);
-		this.name = name;
+		setName(name);
 	}
 
 	public String getName() {
