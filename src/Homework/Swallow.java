@@ -5,7 +5,7 @@ public class Swallow extends FlyingBird {
 
 	public Swallow(boolean feathers, int layEggs, int name) {
 		super(feathers, layEggs);
-		this.name=name;
+		setName(name);
 	}
 
 	public int getName() {
