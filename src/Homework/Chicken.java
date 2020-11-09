@@ -3,9 +3,9 @@ package Homework;
 public class Chicken extends NonFlyingBird {
 	private String name;
 
-	public Chicken(boolean feathers, int layEggs, String name) {
+	public Chicken(String name, boolean feathers, int layEggse) {
 		super(feathers, layEggs);
-		this.name = name;
+		setName(name);
 	}
 
 	public String getName() {
