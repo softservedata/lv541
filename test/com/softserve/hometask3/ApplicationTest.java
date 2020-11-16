@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class ApplicationTest {
 
     @Test
-    public void test1() {
+    public void task2Test() {
 
     }
 }
