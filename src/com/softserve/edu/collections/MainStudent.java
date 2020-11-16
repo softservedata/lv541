@@ -14,8 +14,9 @@ public class MainStudent {
         students.add(new Student("Olya", 5));
         students.add(new Student("Vira", 4));
         students.add(new Student("Ivan", 5));
-       Student.printStudents(students, 5);
+        Student.printStudents(students, 5);
 
+        System.out.println("");
         Collections.sort(students);
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()){
@@ -23,8 +24,11 @@ public class MainStudent {
             System.out.println(student);
         }
 
-        }
+        System.out.println("");
+        Collections.sort(students, new Student.ByCourse());
+        System.out.println(students);
 
+        }
         }
 
 

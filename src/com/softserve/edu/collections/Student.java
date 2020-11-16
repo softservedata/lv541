@@ -5,6 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Student implements Comparable<Student>{
+
+    public static class ByCourse implements Comparator<Student> {
+
+        @Override
+        public int compare(Student student1, Student student2) {
+            return student1.getCourse() - student2.getCourse();
+        }
+    }
+
     private String name;
     private int course;
 
@@ -45,9 +54,7 @@ public class Student implements Comparable<Student>{
     }
     @Override
     public int compareTo(Student o) {
-        return Comparator.comparing(Student :: getName)
-                .thenComparing(Student :: getCourse)
-                .compare(this, o);
+        return -getName().compareTo(o.getName());
     }
 
     @Override
