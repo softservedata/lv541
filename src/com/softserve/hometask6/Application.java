@@ -71,12 +71,18 @@ public class Application {
         students.add(new Student("Yura", 1));
         students.add(new Student("Ivan", 2));
         students.add(new Student("Vladyslava", 2));
-        printStudents(students, 2);
+        //printStudents(students, 2);
         Student test = null;
-        for (Student student1 : students) {
-            for (Student student2 : students) {
-                
-            }
+        students.sort(new Student.ByName());
+        Iterator iterator = students.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        System.out.println("----------");
+        students.sort(new Student.ByCourse());
+        iterator = students.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 

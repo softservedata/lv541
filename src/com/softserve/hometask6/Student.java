@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Student {
+    public static ByName ByName;
+    public static ByCourse ByCourse;
     private String name;
     private int course;
 
@@ -15,7 +17,7 @@ public class Student {
     public static class ByName implements Comparator<Student> {
         @Override
         public int compare(Student st1, Student st2) {
-            return -st1.getName().compareTo(st2.getName());
+            return st1.getName().compareTo(st2.getName());
         }
     }
 
