@@ -1,4 +1,4 @@
-package l7_Collections_Generics;
+package com.softserve.edu.begmst.l7_Collections_Generics;
 
 import java.util.ArrayList;
 import java.util.Collections;

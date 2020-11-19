@@ -1,4 +1,4 @@
-package l3_OOP_class_object;
+package com.softserve.edu.begmst.l3_OOP_class_object;
 
 public class Employee {
 	

@@ -1,4 +1,4 @@
-package Life;
+package com.softserve.edu.begmst.Life;
 
 import java.util.Scanner;
 

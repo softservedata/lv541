@@ -1,4 +1,4 @@
-package l4_Condition_statements;
+package com.softserve.edu.begmst.l4_Condition_statements;
 
 import java.util.ArrayList;
 import java.util.Collections;

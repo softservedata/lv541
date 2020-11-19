@@ -1,4 +1,4 @@
-package Computer;
+package com.softserve.edu.begmst.Computer;
 
 public class Computer {
 	private Command[] commands;
