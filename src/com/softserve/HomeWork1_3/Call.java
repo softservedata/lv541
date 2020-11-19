@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -15,9 +16,13 @@ public class Call {
 	}
 
 	public void get_count() throws ParseException, IOException {
+		if (name == null) {
+			
+		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Enter the units per minute for the "+name+" call = ");
 		c = Float.parseFloat(br.readLine());
+		
 		
 		SimpleDateFormat data_type= new SimpleDateFormat("HH:mm:ss");
 		
@@ -26,8 +31,11 @@ public class Call {
 		System.out.print(" to ");
 		
 		Date t1T = data_type.parse(br.readLine());
+		
 		t = (float)TimeUnit.MILLISECONDS.toSeconds(t1T.getTime()-t1F.getTime())/60; 
 		count = c*t;
+		//long dd = System.currentTimeMillis();
+		//LocalDateTime h = LocalDateTime.now(); 
 	}
 	public static void main(String[] args) throws ParseException, IOException {
 		Call call1 = new Call("first");

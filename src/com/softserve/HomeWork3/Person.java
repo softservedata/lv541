@@ -16,12 +16,14 @@ public class Person {
 		firstName = "";
 		lastName = "";
 		birthYear = 0;	
+		
 	}
 	
 	public Person(String firstName,String lastName, int birthYear) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.birthYear = birthYear;	
+		//this.birthYear = birthYear;	
+		setBirthYear(birthYear);
 	}
 
 	public String getFirstName() {
@@ -51,6 +53,12 @@ public class Person {
 	}
 	
 	public void setBirthYear(int birthYear) {
+		int yearNow = getYear();
+		if (birthYear <= yearNow && (yearNow - birthYear) < 150  ) {
+			this.birthYear = birthYear;
+		}else {
+			throw new IllegalArgumentException("Error birth year!");
+		}
 		this.birthYear = birthYear;
 	}
 	
@@ -84,7 +92,7 @@ public class Person {
 	
 	public void output() {
 		//чи так можна. чи треба this чи немає сенсу
-		System.out.println("person: "+this.toString());
+		System.out.println("person: "+this);
 	}
 	
 	public void changeName(String fn, String ln) {

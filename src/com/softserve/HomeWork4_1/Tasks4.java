@@ -15,6 +15,7 @@ public class Tasks4 {
 		System.out.print("float n1 = ");
 		n1 = Float.parseFloat(br.readLine());
 		
+		
 		System.out.print("float n2 = ");
 		n2 = Float.parseFloat(br.readLine());
 		
@@ -42,6 +43,9 @@ public class Tasks4 {
 		int in3 = Integer.parseInt(br.readLine());
 		
 		System.out.println("the max int of them = "+Math.max(in1, Math.max(in2,in3)));
+		int max = in1;
+		max = Math.max(max, in2);
+		max = Math.max(max, in3);
 		
 		if(in1 > in2 && n1 > in3) {
 			System.out.println("max in1");
