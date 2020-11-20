@@ -26,11 +26,15 @@ public class PracticalTask2 {
 				}
 			}
 		}
+		
+		System.out.println("All possible plants:");
 		for (Plant plant: plants) {
 			System.out.println(plant);
 		}
+		
 		ArrayList<Plant> plantsAL = new ArrayList<Plant>(Arrays.asList(plants));
 		plantsAL.removeIf(plant -> (plant == null));
+		System.out.println("All created plants:");
 		for (Plant plant: plantsAL) {
 			System.out.println(plant);
 		}
@@ -82,27 +86,6 @@ enum Color {
 	YELLOW, 
 	GREEN, 
 	BLUE;
-
-//	RED(new Type[] {Type.FLOWER, Type.FRUIT}), 
-//	YELLOW(new Type[] {Type.FLOWER, Type.WHEAT, Type.FRUIT}), 
-//	GREEN(new Type[] {Type.GRASS}), 
-//	BLUE(new Type[] {Type.FLOWER});
-//
-//	private HashSet<Type> types;
-//	
-//	Color(Type[] types) {
-//		this.types = new HashSet<Type>();
-//		this.types.addAll(Arrays.asList(types));
-//		System.out.println(this.name() + " types: " + this.types);
-//	}
-//	
-//	public boolean checkCombination(Type type) {
-//		return this.types.contains(type);
-//	}
-//	
-//	public HashSet<Type> getCombination() {
-//		return this.types;
-//	}
 }
 
 enum Type {
@@ -128,15 +111,16 @@ enum Type {
 	}
 }
 
+@SuppressWarnings("serial")
 class ColorException extends Exception {
 	public ColorException(HashSet<Color> colors, Type type) {
 		super(String.format("The only %s plant colors are allowed for %s", colors, type));
 	}
 }
 
+@SuppressWarnings("serial")
 class TypeException extends Exception {
-	public TypeException(HashSet<Type> types, Color color) {
-		super(String.format("The only %s plant types are allowed for %s", types, color));
-	}
-	
+//	public TypeException(HashSet<Type> types, Color color) {
+//		super(String.format("The only %s plant types are allowed for %s", types, color));
+//	}
 }
