@@ -1,6 +1,6 @@
 package com.softserve.HomeWork6_2;
 
-public class Employee {
+public abstract class Employee implements MyInterface {
 	private String employeeld;
 	//public static double averageMonthlyWage;
 	

@@ -1,6 +1,6 @@
 package com.softserve.HomeWork6_2;
 
-public class SalariedEmployee extends Employee implements MyInterface  {
+public class SalariedEmployee extends Employee {
 	private double salary;
 	private String socialSecurityNumber;
 	public SalariedEmployee(String employeeld,double salary,String socialSecurityNumber) {

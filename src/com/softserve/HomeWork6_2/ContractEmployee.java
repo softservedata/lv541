@@ -1,6 +1,6 @@
 package com.softserve.HomeWork6_2;
 
-public class ContractEmployee extends Employee implements MyInterface  {
+public class ContractEmployee extends Employee{
 	private int numberOfHoursWorked;
 	private double hourlyRate;
 	private String federalTaxIdmember;

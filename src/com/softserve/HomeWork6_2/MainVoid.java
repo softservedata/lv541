@@ -12,18 +12,12 @@ public class MainVoid {
 				new ContractEmployee("Ivan ", 40, 177, "5465465446"),
 				new ContractEmployee("Zhann ", 38, 16.45, "3388499926")};
 		double averagMonthlyWage = 0;
-		int count = 0;
 		for (Employee Em : listEm){
 			System.out.println(Em);
-			if (Em instanceof SalariedEmployee) {
-				averagMonthlyWage = averagMonthlyWage + ((SalariedEmployee)Em).calculatePay();
-			}else {
-				averagMonthlyWage = averagMonthlyWage + ((ContractEmployee)Em).calculatePay();
-			}
-			count = count + 1;
+			averagMonthlyWage = averagMonthlyWage + Em.calculatePay();
 		}
-		if (count != 0) {
-			System.out.println("average monthly wage "+averagMonthlyWage/count);
+		if (listEm.length != 0) {
+			System.out.println("average monthly wage "+averagMonthlyWage/listEm.length);
 		}
 
 	}
