@@ -1,4 +1,4 @@
-package com.softserve.edu.begmst.l4_Condition_statements;
+package com.softserve.edu.begmst.l04_Condition_statements;
 
 import java.util.Scanner;
 

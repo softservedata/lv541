@@ -1,4 +1,4 @@
-package com.softserve.edu.begmst.l8_String_Regular_expression;
+package com.softserve.edu.begmst.l08_String_Regular_expression;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.softserve.edu.begmst.l7_Collections_Generics;
+package com.softserve.edu.begmst.l07_Collections_Generics;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.softserve.edu.begmst.l9_Exceptions;
+package com.softserve.edu.begmst.l09_Exceptions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
