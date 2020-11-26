@@ -1,8 +1,11 @@
 package Homework_3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Iterator;
+
 
 public class StudentMain {
 
@@ -17,22 +20,24 @@ public class StudentMain {
 		studentsList.add (new Student("Layla", 2));
 		studentsList.add (new Student("Claudia",4));
 		studentsList.add (new Student("Ellen", 9));
+		
 		Student.printStudents(studentsList,5);
-		
-		studentsList.sort(new NameComparator());
-		for (Student student : studentsList) {
-			System.out.println(student);
-		
-			}
-		studentsList.sort( new CourseComparator());
-		for (Student student : studentsList) {
-			System.out.println (student);
-			}
-		}
 	
-	}
- 
-		
+
+        System.out.println("");
+        Collections.sort(studentsList);
+        Iterator<Student> iterator = studentsList.iterator();
+        while (iterator.hasNext()){
+            Student student = iterator.next();
+            System.out.println(student);
+        }
+
+        System.out.println("");
+        Collections.sort(studentsList, new Student.ByCourse());
+        System.out.println(studentsList);
+
+        }
+        }	
 
 	
 		
