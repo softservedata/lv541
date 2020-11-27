@@ -1,5 +1,17 @@
 package com.softserve.edu.begmst.l10_IO_Thread;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class PracticalTask {
 	
 	/**
@@ -40,14 +52,61 @@ public class PracticalTask {
 	 * - 2) find the longest and the shortest line.
 	 * - 3) find and write only that lines, which consist of word «var»
 	 */
-	public static void task3() {
+	public static void task3(String fileName) {
+		FileReader fr;
+		try {
+			fr = new FileReader(fileName);
+			BufferedReader br = new BufferedReader(fr);
+			String s = null;
+			int count = 0;
+			List<String> strings = new ArrayList<String>();
+			System.out.println("Read data from file: " + fileName);
+			while ((s = br.readLine()) != null) {
+				System.out.println(String.format("Line %d has %d symbols: %s", count, s.length(), s));
+				strings.add(s);
+				count++;
+			}
+			br.close();
+			
+			List<String> sortedStrings = strings
+					.stream()
+					.filter(v -> !v.isBlank())
+					.sorted((a, b) -> b.length() - a.length())
+					.collect(Collectors.toList());
+			System.out.println(String.format("Longest string is: %s", sortedStrings.get(0)));
+			System.out.println(String.format("Shortest string is: %s", sortedStrings.get(sortedStrings.size() - 1)));
+			
+			String longestStrings = strings
+					.stream()
+					.filter(v -> !v.isBlank())
+					.map(v -> v)
+					.max(Comparator.comparing(String::length))
+					.get();
+			String shortestStrings = strings
+					.stream()
+					.filter(v -> !v.isBlank())
+					.map(v -> v)
+					.min(Comparator.comparing(String::length))
+					.get();
+			System.out.println(String.format("Longest string is: %s", longestStrings));
+			System.out.println(String.format("Shortest string is: %s", shortestStrings));
+			
+			String keyword = "var";
+			strings
+				.stream()
+				.filter(v -> v.contains(keyword))
+				.forEach(v -> System.out.println(String.format("String with %s: %s", keyword, v)));
+			
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		}
 	}
 	
 	public static void main(String[] args) {
-		PracticalTask.task1("I study Java");
-		PracticalTask.task1("I study Java too");
-		PracticalTask.task2();
-		PracticalTask.task3();
+//		PracticalTask.task1("I study Java");
+//		PracticalTask.task1("I study Java too");
+//		PracticalTask.task2();
+		PracticalTask.task3(args[0]);
 	}
 }
 
