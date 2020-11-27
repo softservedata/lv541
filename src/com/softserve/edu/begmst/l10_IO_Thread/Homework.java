@@ -1,5 +1,8 @@
 package com.softserve.edu.begmst.l10_IO_Thread;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Homework {
 	
 	/**
@@ -9,15 +12,12 @@ public class Homework {
 	public static void task1() {
 		Thread t1 = new Thread(new Task1Run("A"));
 		Thread t2 = new Thread(new Task1Run("BB"));
-		Thread t3 = new Thread(new Task1Run("CCC"));
+		List<Thread> threads = new ArrayList<Thread>();
 		t1.start();
 		t2.start();
-		try {
-			t1.join();
-			t2.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		threads.add(t1);		
+		threads.add(t2);		
+		Thread t3 = new Thread(new Task1Run("CCC", threads));
 		t3.start();
 	}
 
@@ -61,14 +61,26 @@ public class Homework {
 
 class Task1Run implements Runnable {
 	private String text;
+	private List<Thread> joinThreads = new ArrayList<Thread>();
 	
 	public Task1Run(String text) {
 		this.text = text;
 	}
+	public Task1Run(String text, List<Thread> threads) {
+		this.text = text;
+		this.joinThreads.addAll(threads);
+	}
 	
 	public void run() {
 		for (int i = 0; i < 5; i++) {
-			System.out.println(this.text);
+			System.out.println(Thread.currentThread().getId() + ": " + this.text);
 		}
+		this.joinThreads.forEach(t -> {
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+			}
+		});
+		System.out.println(Thread.currentThread().getId() + ": " + this.text + ": DONE");
 	}
 }
