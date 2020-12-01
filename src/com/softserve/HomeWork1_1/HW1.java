@@ -8,7 +8,7 @@ public class HW1 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Enter the radius of the flower bed = ");
+		System.out.print("Enter the radius of the flower bed  = ");
 		float radius = Float.parseFloat(br.readLine());
 		br.close();
 		System.out.println("The perimeter = "+(2*radius*Math.PI));
