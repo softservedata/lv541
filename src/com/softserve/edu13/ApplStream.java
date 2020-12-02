@@ -15,7 +15,8 @@ public class ApplStream {
         //strings.add(1, "_ _ _ _"); // Exception
         //strings.set(1, "_ _ _ _"); // Ok
         //
-        System.out.println("Origin: " + strings);
+        //System.out.println("Origin: " + strings);
+        strings.forEach(s->System.out.print(s + " "));
         /*-
         List<String> filtered = strings.stream()
             .filter(string -> !string.isEmpty())
