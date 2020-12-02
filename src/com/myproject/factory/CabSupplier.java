@@ -3,36 +3,27 @@ package com.myproject.factory;
 import java.util.Random;
 
 
-public class CabSupplier implements Runnable{
-	private String name;
-	private CabWarehouse Warehouse;
-	private final int cabCount = 100;
+public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
 	
-	
-	public CabSupplier(String name, CabWarehouse warehouse) {
-		this.name = name;
-		this.Warehouse = warehouse;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
+	public CabSupplier(String name, CabWarehouse warehouse, int countProdution) {
+		super(name, warehouse, countProdution);
 	}
 
 	@Override
 	public String toString() {
-		return "Cab supplier [name=" + name + "]";
+		return "Cab supplier [name=" + getName() + "]";
 	}
+	
 	@Override
 	public void run() {
 		
 		// generate cabs
 		int count = 0;
-        while (count < cabCount) {
+        while (count < getCountProdution()) {
         	Cab nc = new Cab(getRandomID());
+        	CabWarehouse Warehouse = (CabWarehouse) getWarehouse();
         	Warehouse.addToCabWarehouse(nc);
-        	System.out.println("Provider "+name+" deliver "+nc);
+        	System.out.println("Provider "+getName()+" deliver "+nc);
             count++;
             try {
 				Thread.sleep(100);
