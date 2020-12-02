@@ -19,12 +19,12 @@ public class ShipGenerator implements Runnable {
             Thread.currentThread().setName(" Generator ship");
             count++;
             tunnel.add(new Ship(getRandomSize(), getRandomType()));
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            //try {
+            //    Thread.sleep(10);
+            //} catch (InterruptedException e) {
+             //   e.printStackTrace();
+            //}
             }
-              }
     }
 
     private Type getRandomType() {

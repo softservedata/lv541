@@ -8,7 +8,7 @@ public class Main{
 		System.out.println("Available number of cores: " + Runtime.getRuntime().availableProcessors());
 		
 		Tunnel tunnel = new Tunnel();
-		ShipGenerator shipGenerator = new ShipGenerator(tunnel, 12);
+		ShipGenerator shipGenerator = new ShipGenerator(tunnel, 40);
 		PierLoader pierLoader1 = new PierLoader(tunnel, Type.TYPE1);
 		PierLoader pierLoader2 = new PierLoader(tunnel, Type.TYPE2);
 		PierLoader pierLoader3 = new PierLoader(tunnel, Type.TYPE3);
