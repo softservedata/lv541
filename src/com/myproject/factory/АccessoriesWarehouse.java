@@ -12,7 +12,7 @@ public class ¿ccessoriesWarehouse{
 		
 	}
 	
-	public synchronized void addTo¿ccessoriesWarehouse(¿ccessories some¿ccessor) {
+	public void addTo¿ccessoriesWarehouse(¿ccessories some¿ccessor) {
 		synchronized (AppMain.monitorForSupplier) {
 			if(¿ccessoriesProvision.size() < maxNumberOf¿ccessories) {
 				AppMain.monitorForSupplier.notify();

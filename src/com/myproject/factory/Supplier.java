@@ -31,10 +31,5 @@ public class Supplier extends BaseSupplier<ÀccessoriesWarehouse>  implements Run
         }
 		
 	}
-	
-	private int getRandomID() {
-        Random random = new Random();
-		return random.nextInt();
-	}
 
 }

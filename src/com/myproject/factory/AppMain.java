@@ -10,13 +10,13 @@ public class AppMain {
 
 	public static void main(String[] args) {
 		CabWarehouse CabW= new CabWarehouse();
-		CabSupplier cs1 = new CabSupplier("Good cabs",CabW,10);
-		CabSupplier cs2 =new CabSupplier("Strong cabs",CabW,15);
+		CabSupplier cs1 = new CabSupplier("Good cabs",CabW,200);
+		CabSupplier cs2 =new CabSupplier("Strong cabs",CabW,300);
 		
 		ÀccessoriesWarehouse accW = new ÀccessoriesWarehouse();
 		ArrayList<Supplier> supplierArray = new ArrayList<Supplier>();
 		for(int k = 0 ; k < 5; k++) {
-			supplierArray.add(new Supplier("Supplier"+k,accW,5));	
+			supplierArray.add(new Supplier("Supplier"+k,accW,50));	
 		}
 		//Worker w1 = new Worker("Ivan");
 		//Worker w2 = new Worker("Petro");

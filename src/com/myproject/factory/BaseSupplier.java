@@ -1,5 +1,7 @@
 package com.myproject.factory;
 
+import java.util.Random;
+
 public class BaseSupplier<T> {
 	private String name;
 	private T warehouse;
@@ -32,5 +34,10 @@ public class BaseSupplier<T> {
 	@Override
 	public String toString() {
 		return "Supplier [name=" + name + "]";
+	}
+	
+	public int getRandomID() {
+        Random random = new Random();
+		return random.nextInt();
 	}
 }

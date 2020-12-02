@@ -1,7 +1,5 @@
 package com.myproject.factory;
 
-import java.util.Random;
-
 
 public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
 	
@@ -34,9 +32,4 @@ public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
 		
 	}
 	
-	private int getRandomID() {
-        Random random = new Random();
-		return random.nextInt();
-	}
-
 }
