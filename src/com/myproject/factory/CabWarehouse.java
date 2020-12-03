@@ -3,19 +3,23 @@ package com.myproject.factory;
 import java.util.ArrayList;
 
 
-public class CabWarehouse {
-	private ArrayList<Cab> cabProvision;
-	private final int maxNumberOfCab = 20;
-	public CabWarehouse() {
-		cabProvision = new ArrayList<>();
-		
+public class CabWarehouse extends BaseWarehouse<Cab>{
+
+	public CabWarehouse(int maxNumber) {
+		super(maxNumber);
 	}
 	
-	public synchronized void addToCabWarehouse(Cab someCab) {
+	@Override
+	public void addToWarehouse(Object someCab) {
+
 		synchronized (AppMain.monitor) {
-			if(cabProvision.size() < maxNumberOfCab) {
+			
+			ArrayList<Cab> Provisions = getProvision();
+
+			if(Provisions.size() < getMaxNumber()) {
+			//if(true) {
 				AppMain.monitor.notify();
-				cabProvision.add(someCab);	
+				Provisions.add((Cab)someCab);	
 				//System.out.println(cabProvision.size());
 			}else {
 				try {
@@ -27,13 +31,14 @@ public class CabWarehouse {
 		}
 		
 	}
-	
-	public Cab getFromCabWarehouse() {
+	@Override
+	public Cab getFromWarehouse() {
 		synchronized (AppMain.monitor) {
-			if(cabProvision.size() > 0) {
+			ArrayList<Cab> provisions = getProvision();
+			if(provisions.size() > 0) {
 				AppMain.monitor.notify();
-				Cab GetCab = cabProvision.get(0);
-				cabProvision.remove(GetCab);
+				Cab GetCab = provisions.get(0);
+				provisions.remove(GetCab);
 				return GetCab;
 			}
 			try {
@@ -45,4 +50,6 @@ public class CabWarehouse {
 		return null;
 		
 	}
+
+
 }

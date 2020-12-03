@@ -32,7 +32,9 @@ public class AppMain {
 		service2.execute(cs1);
 		service2.execute(cs2);
 		service2.shutdown();
-		System.out.println("end");
+		
+        DialogFactory df = new DialogFactory();
+        df.setVisible(true);
 
 
 	}

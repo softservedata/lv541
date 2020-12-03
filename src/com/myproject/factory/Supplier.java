@@ -19,7 +19,7 @@ public class Supplier extends BaseSupplier<ÀccessoriesWarehouse>  implements Run
         while (count < getCountProdution()) {
         	Àccessories nc = new Àccessories(getRandomID());    	
         	ÀccessoriesWarehouse Warehouse = (ÀccessoriesWarehouse) getWarehouse();
-        	Warehouse.addToÀccessoriesWarehouse(nc);
+        	Warehouse.addToWarehouse(nc);
         	
         	System.out.println(getName()+" deliver "+nc);
             count++;

@@ -2,21 +2,18 @@ package com.myproject.factory;
 
 import java.util.ArrayList;
 
-public class ¿ccessoriesWarehouse{
+public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 
-	private ArrayList<¿ccessories> ¿ccessoriesProvision;
-	private final int maxNumberOf¿ccessories = 40;
-	
-	public ¿ccessoriesWarehouse(){
-		¿ccessoriesProvision = new ArrayList<>();
-		
+	public ¿ccessoriesWarehouse(int maxNumber) {
+		super(maxNumber);
 	}
-	
-	public void addTo¿ccessoriesWarehouse(¿ccessories some¿ccessor) {
+	@Override
+	public void addToWarehouse(Object some¿ccessor) {
 		synchronized (AppMain.monitorForSupplier) {
-			if(¿ccessoriesProvision.size() < maxNumberOf¿ccessories) {
+			ArrayList<¿ccessories> Provisions = getProvision();
+			if(Provisions.size() < getMaxNumber()) {
 				AppMain.monitorForSupplier.notify();
-				¿ccessoriesProvision.add(some¿ccessor);	
+				Provisions.add((¿ccessories)some¿ccessor);	
 				//System.out.println(¿ccessoriesProvision.size());
 			}else {
 				try {
@@ -29,12 +26,14 @@ public class ¿ccessoriesWarehouse{
 		
 	}
 	
-	public ¿ccessories getFromCabWarehouse() {
+	@Override
+	public ¿ccessories getFromWarehouse() {
 		synchronized (AppMain.monitorForSupplier) {
-			if(¿ccessoriesProvision.size() > 0) {
+			ArrayList<¿ccessories> Provisions = getProvision();
+			if(Provisions.size() > 0) {
 				AppMain.monitorForSupplier.notify();
-				¿ccessories Get¿ccessor = ¿ccessoriesProvision.get(0);
-				¿ccessoriesProvision.remove(Get¿ccessor);
+				¿ccessories Get¿ccessor = Provisions.get(0);
+				Provisions.remove(Get¿ccessor);
 				return Get¿ccessor;
 			}
 			try {
@@ -46,4 +45,5 @@ public class ¿ccessoriesWarehouse{
 		return null;
 		
 	}
+
 }

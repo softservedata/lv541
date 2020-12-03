@@ -2,7 +2,7 @@ package com.myproject.factory;
 
 import java.util.Random;
 
-public class BaseSupplier<T> {
+public abstract class BaseSupplier<T> {
 	private String name;
 	private T warehouse;
 	private int countProdution;

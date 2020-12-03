@@ -20,7 +20,8 @@ public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
         while (count < getCountProdution()) {
         	Cab nc = new Cab(getRandomID());
         	CabWarehouse Warehouse = (CabWarehouse) getWarehouse();
-        	Warehouse.addToCabWarehouse(nc);
+ 
+        	Warehouse.addToWarehouse(nc);
         	System.out.println("Provider "+getName()+" deliver "+nc);
             count++;
             try {
