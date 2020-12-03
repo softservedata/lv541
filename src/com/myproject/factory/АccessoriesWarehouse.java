@@ -34,7 +34,7 @@ public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 				AppMain.monitorForSupplier.notify();
 				¿ccessories Get¿ccessor = Provisions.get(0);
 				Provisions.remove(Get¿ccessor);
-				AppMain.df.accessoriesRemove(GetCab);
+				AppMain.df.accessoriesRemove(Get¿ccessor);
 				return Get¿ccessor;
 			}
 			try {

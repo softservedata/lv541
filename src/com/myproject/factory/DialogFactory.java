@@ -36,20 +36,24 @@ public class DialogFactory extends JFrame {
         //
         centerPanel.add(tLabelC);
         centerPanel.add(tOutputC);
-        centerPanel.add(tLabelA);
-        centerPanel.add(tOutputA);
-        centerPanel.add(buttonExit);
-        Container container = this.getContentPane();
-        container.add(centerPanel, BorderLayout.CENTER);
-        //
-
+        
         tOutputC.setSelectedIndex(0);
         tOutputC.setFocusable(false);
-        centerPanel.add(new JScrollPane(tOutputC), BorderLayout.CENTER);
+        centerPanel.add(new JScrollPane(tOutputC), BorderLayout.CENTER);       centerPanel.add(tLabelA);
+        
+        centerPanel.add(tOutputA);
         
         tOutputA.setSelectedIndex(0);
         tOutputA.setFocusable(false);
         centerPanel.add(new JScrollPane(tOutputA), BorderLayout.CENTER);
+        
+       // centerPanel.add(buttonExit);
+        Container container = this.getContentPane();
+        container.add(centerPanel, BorderLayout.NORTH);
+        //
+
+
+        
 
         buttonExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
