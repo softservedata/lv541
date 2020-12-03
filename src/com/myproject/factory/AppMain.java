@@ -9,16 +9,17 @@ public class AppMain {
 	public static Object monitorForSupplier = new Object();
 
 	public static void main(String[] args) {
-		CabWarehouse CabW= new CabWarehouse();
-		CabSupplier cs1 = new CabSupplier("Good cabs",CabW,200);
-		CabSupplier cs2 =new CabSupplier("Strong cabs",CabW,300);
+		CabWarehouse CabW= new CabWarehouse(20);
 		
-		ÀccessoriesWarehouse accW = new ÀccessoriesWarehouse();
+		CabSupplier cs1 = new CabSupplier("Good cabs",CabW,200);
+		CabSupplier cs2 = new CabSupplier("Strong cabs",CabW,300);
+		
+		ÀccessoriesWarehouse accW = new ÀccessoriesWarehouse(15);
 		ArrayList<Supplier> supplierArray = new ArrayList<Supplier>();
 		for(int k = 0 ; k < 5; k++) {
 			supplierArray.add(new Supplier("Supplier"+k,accW,50));	
 		}
-		//Worker w1 = new Worker("Ivan");
+
 		//Worker w2 = new Worker("Petro");
 		//Worker w3 = new Worker("Dmytro");
 		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
@@ -31,6 +32,8 @@ public class AppMain {
 		service2.execute(cs1);
 		service2.execute(cs2);
 		service2.shutdown();
+		System.out.println("end");
+
 
 	}
 
