@@ -13,8 +13,8 @@ public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 			ArrayList<¿ccessories> Provisions = getProvision();
 			if(Provisions.size() < getMaxNumber()) {
 				AppMain.monitorForSupplier.notify();
-				Provisions.add((¿ccessories)some¿ccessor);	
-				//System.out.println(¿ccessoriesProvision.size());
+				Provisions.add((¿ccessories)some¿ccessor);
+				AppMain.df.accessoriesSetOutput((¿ccessories)some¿ccessor);
 			}else {
 				try {
 					AppMain.monitorForSupplier.wait();
@@ -34,6 +34,7 @@ public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 				AppMain.monitorForSupplier.notify();
 				¿ccessories Get¿ccessor = Provisions.get(0);
 				Provisions.remove(Get¿ccessor);
+				AppMain.df.accessoriesRemove(GetCab);
 				return Get¿ccessor;
 			}
 			try {

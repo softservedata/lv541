@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 public class AppMain {
 	public static Object monitor = new Object();
 	public static Object monitorForSupplier = new Object();
+	public static DialogFactory df = new DialogFactory();
 
 	public static void main(String[] args) {
 		CabWarehouse CabW= new CabWarehouse(20);
@@ -33,9 +34,10 @@ public class AppMain {
 		service2.execute(cs2);
 		service2.shutdown();
 		
-        DialogFactory df = new DialogFactory();
-        df.setVisible(true);
+       // DialogFactory df = new DialogFactory();
+		AppMain.df.setVisible(true);
 
+       
 
 	}
 

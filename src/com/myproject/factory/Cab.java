@@ -23,6 +23,12 @@ public class Cab {
 	public Cab(int id) {
 		this.id = id;
 	}
+
+
+	public void addElement(Cab someCab) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

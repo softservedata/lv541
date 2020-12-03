@@ -20,7 +20,8 @@ public class CabWarehouse extends BaseWarehouse<Cab>{
 			//if(true) {
 				AppMain.monitor.notify();
 				Provisions.add((Cab)someCab);	
-				//System.out.println(cabProvision.size());
+				AppMain.df.cabSetOutput((Cab)someCab);
+
 			}else {
 				try {
 					AppMain.monitor.wait();
@@ -39,6 +40,7 @@ public class CabWarehouse extends BaseWarehouse<Cab>{
 				AppMain.monitor.notify();
 				Cab GetCab = provisions.get(0);
 				provisions.remove(GetCab);
+				AppMain.df.cabRemove(GetCab);
 				return GetCab;
 			}
 			try {

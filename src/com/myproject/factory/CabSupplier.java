@@ -22,7 +22,7 @@ public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
         	CabWarehouse Warehouse = (CabWarehouse) getWarehouse();
  
         	Warehouse.addToWarehouse(nc);
-        	System.out.println("Provider "+getName()+" deliver "+nc);
+        	//System.out.println("Provider "+getName()+" deliver "+nc);
             count++;
             try {
 				Thread.sleep(100);
