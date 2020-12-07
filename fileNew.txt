@@ -1,0 +1,7 @@
+Line = 1 value = aaaaa
+Line = 2 value = bbbbb
+Line = 3 value = ccccc
+Line = 4 value = ddddd
+Line = 5 value = eeeee iiiii
+Original Byte(s) Count is 39
+Birthday date is 04.12.2020
