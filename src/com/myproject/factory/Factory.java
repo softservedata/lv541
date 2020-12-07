@@ -1,6 +1,8 @@
 package com.myproject.factory;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Factory {
 	private final EngineWarehouse warehouseEngine;
@@ -49,6 +51,17 @@ public class Factory {
 
 	public CarWarehouse getWarehouseCar() {
 		return WarehouseCar;
+	}
+	
+	public void startProduction() {
+		//synchronized (AppMain.monitorController) {
+			ExecutorService serviceForProduction = Executors.newFixedThreadPool(3);
+			for(CarProductionWorker production : getProduction()) {
+				serviceForProduction.execute(production);	
+			}
+			serviceForProduction.shutdown();
+		//}
+
 	}
 
 	

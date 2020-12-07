@@ -38,6 +38,8 @@ public class AppMain {
 		}
 		service.shutdown();
 		
+		myFactory.startProduction();
+		
 		//ExecutorService serviceS = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 		//for(Supplier s : supplierArray) {
@@ -45,13 +47,13 @@ public class AppMain {
 		//}
 		//serviceS.shutdown();
 		
-		///*-
+		/*-
 		ExecutorService serviceForProduction = Executors.newFixedThreadPool(3);
 		for(CarProductionWorker production : myFactory.getProduction()) {
 			serviceForProduction.execute(production);	
 		}
 		serviceForProduction.shutdown();
-		//*/			
+		*/			
 		/*-
 		Controller Control = new Controller();
 		ExecutorService serviceForController = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
