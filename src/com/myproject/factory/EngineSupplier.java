@@ -1,16 +1,14 @@
 package com.myproject.factory;
 
-
-public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
+public class EngineSupplier extends BaseSupplier<EngineWarehouse> implements Runnable{
 	
-	public CabSupplier(String name, CabWarehouse warehouse, int countProdution) {
+	public EngineSupplier(String name, EngineWarehouse warehouse, int countProdution) {
 		super(name, warehouse, countProdution);
 	}
 
 	@Override
 	public String toString() {
-		//return "Cab supplier [name=" + getName() + "]";
-		return "Cab supplier " + getName() ;
+		return "Engine supplier " + getName();
 	}
 	
 	@Override
@@ -19,8 +17,8 @@ public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
 		// generate cabs
 		int count = 0;
         while (count < getCountProdution()) {
-        	Cab nc = new Cab(this);
-        	CabWarehouse Warehouse = (CabWarehouse) getWarehouse();
+        	Engine nc = new Engine(this);
+        	EngineWarehouse Warehouse = (EngineWarehouse) getWarehouse();
  
         	Warehouse.addToWarehouse(nc);
         	//System.out.println("Provider "+getName()+" deliver "+nc);

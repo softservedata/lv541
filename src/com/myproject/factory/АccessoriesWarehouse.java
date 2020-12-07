@@ -9,15 +9,15 @@ public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 	}
 	@Override
 	public void addToWarehouse(Object some¿ccessor) {
-		synchronized (AppMain.monitorForSupplier) {
+		synchronized (AppMain.monitor¿ccessor) {
 			ArrayList<¿ccessories> Provisions = getProvision();
 			if(Provisions.size() < getMaxNumber()) {
-				AppMain.monitorForSupplier.notify();
+				AppMain.monitor¿ccessor.notify();
 				Provisions.add((¿ccessories)some¿ccessor);
 				AppMain.df.accessoriesSetOutput((¿ccessories)some¿ccessor);
 			}else {
 				try {
-					AppMain.monitorForSupplier.wait();
+					AppMain.monitor¿ccessor.wait();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -28,17 +28,17 @@ public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 	
 	@Override
 	public ¿ccessories getFromWarehouse() {
-		synchronized (AppMain.monitorForSupplier) {
+		synchronized (AppMain.monitor¿ccessor) {
 			ArrayList<¿ccessories> Provisions = getProvision();
 			if(Provisions.size() > 0) {
-				AppMain.monitorForSupplier.notify();
+				AppMain.monitor¿ccessor.notify();
 				¿ccessories Get¿ccessor = Provisions.get(0);
 				Provisions.remove(Get¿ccessor);
 				AppMain.df.accessoriesRemove(Get¿ccessor);
 				return Get¿ccessor;
 			}
 			try {
-				AppMain.monitorForSupplier.wait();
+				AppMain.monitor¿ccessor.wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -47,4 +47,9 @@ public class ¿ccessoriesWarehouse extends BaseWarehouse<¿ccessories>{
 		
 	}
 
+	@Override
+	public void deleteFromWarehouse(Object some¿ccessor) {
+		getProvision().remove(some¿ccessor);
+		AppMain.df.accessoriesRemove((¿ccessories)some¿ccessor);		
+	}
 }

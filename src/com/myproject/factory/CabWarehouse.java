@@ -12,19 +12,19 @@ public class CabWarehouse extends BaseWarehouse<Cab>{
 	@Override
 	public void addToWarehouse(Object someCab) {
 
-		synchronized (AppMain.monitor) {
+		synchronized (AppMain.monitorCab) {
 			
 			ArrayList<Cab> Provisions = getProvision();
 
 			if(Provisions.size() < getMaxNumber()) {
 			//if(true) {
-				AppMain.monitor.notify();
+				AppMain.monitorCab.notify();
 				Provisions.add((Cab)someCab);	
 				AppMain.df.cabSetOutput((Cab)someCab);
 
 			}else {
 				try {
-					AppMain.monitor.wait();
+					AppMain.monitorCab.wait();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -32,19 +32,20 @@ public class CabWarehouse extends BaseWarehouse<Cab>{
 		}
 		
 	}
+	
 	@Override
 	public Cab getFromWarehouse() {
-		synchronized (AppMain.monitor) {
+		synchronized (AppMain.monitorCab) {
 			ArrayList<Cab> provisions = getProvision();
 			if(provisions.size() > 0) {
-				AppMain.monitor.notify();
+				AppMain.monitorCab.notify();
 				Cab GetCab = provisions.get(0);
 				provisions.remove(GetCab);
 				AppMain.df.cabRemove(GetCab);
 				return GetCab;
 			}
 			try {
-				AppMain.monitor.wait();
+				AppMain.monitorCab.wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -52,6 +53,12 @@ public class CabWarehouse extends BaseWarehouse<Cab>{
 		return null;
 		
 	}
-
+	
+	@Override
+	public void deleteFromWarehouse(Object someCab) {
+		getProvision().remove(someCab);
+		AppMain.df.cabRemove((Cab)someCab);
+		
+	}
 
 }

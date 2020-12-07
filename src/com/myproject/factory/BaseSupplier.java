@@ -1,6 +1,6 @@
 package com.myproject.factory;
 
-import java.util.Random;
+//import java.util.Random;
 
 public abstract class BaseSupplier<T> {
 	private String name;
@@ -36,8 +36,4 @@ public abstract class BaseSupplier<T> {
 		return "Supplier [name=" + name + "]";
 	}
 	
-	public int getRandomID() {
-        Random random = new Random();
-		return random.nextInt();
-	}
 }

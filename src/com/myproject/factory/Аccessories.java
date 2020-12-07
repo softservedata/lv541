@@ -1,27 +1,22 @@
 package com.myproject.factory;
 
-public class Àccessories {
+public class Àccessories extends BaseDetail<Supplier>{
 
-	private int id;
-
-	
 	@Override
 	public String toString() {
-		return "Àccessor [id=" + id + "]";
+		return "Àccessor [id=" + getId() + "], "+getSupplier();
 	}
 
 
-	public int getId() {
-		return id;
+	public Àccessories(Supplier supplier) {
+		super(supplier);
 	}
-
-
-	public void setId(int id) {
-		this.id = id;
+	
+	@Override
+	public int getRandomID() {
+        //Random random = new Random();
+		return (int) (10000000+Math.random()*50000000);
 	}
+	
 
-
-	public Àccessories(int id) {
-		this.id = id;
-	}
 }

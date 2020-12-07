@@ -1,6 +1,5 @@
 package com.myproject.factory;
 
-import java.util.Random;
 
 public class Supplier extends BaseSupplier<ÀccessoriesWarehouse>  implements Runnable{
 
@@ -17,11 +16,11 @@ public class Supplier extends BaseSupplier<ÀccessoriesWarehouse>  implements Run
 		// generate cabs
 		int count = 0;
         while (count < getCountProdution()) {
-        	Àccessories nc = new Àccessories(getRandomID());    	
+        	Àccessories nc = new Àccessories(this);    	
         	ÀccessoriesWarehouse Warehouse = (ÀccessoriesWarehouse) getWarehouse();
         	Warehouse.addToWarehouse(nc);
         	
-        	System.out.println(getName()+" deliver "+nc);
+        	//System.out.println(getName()+" deliver "+nc);
             count++;
             try {
 				Thread.sleep(100);
