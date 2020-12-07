@@ -1,12 +1,15 @@
 package com.myproject.factory;
 
+import com.softserve.edu11.Appl;
+
 public class CarProductionWorker implements Runnable{
 	private final Worker currentWorker;
 	private final Factory factory;
 
 	@Override
 	public void run() {
-		//System.out.println("ddd");
+		synchronized (AppMain.monitorController) {
+		System.out.println("ddd");
 		
 		Car currentCar = new Car();
 		Cab carCab = null;
@@ -50,6 +53,7 @@ public class CarProductionWorker implements Runnable{
 		AppMain.df.workerDeleteObject(currentWorker,carEngine);
 		AppMain.df.workerDeleteObject(currentWorker,car¿ccessories);
 		}
+	}
 
 	public CarProductionWorker(Worker currentWorker, Factory factory) {
 		this.currentWorker = currentWorker;
