@@ -38,18 +38,22 @@ public class AppMain {
 		}
 		service.shutdown();
 		
-		/*-Controller Control = new Controller();
-		ExecutorService serviceForController = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-		serviceForController.execute(Control);
-		serviceForController.shutdown();*/
-		
-		
+		///*-
 		ExecutorService serviceForProduction = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		for(CarProductionWorker production : myFactory.getProduction()) {
 			serviceForProduction.execute(production);	
 		}
+
 		serviceForProduction.shutdown();
+		//*/			
+		/*-
+		Controller Control = new Controller();
+		ExecutorService serviceForController = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		serviceForController.execute(Control);
+		serviceForController.shutdown();
+		*/
 		
+
        // DialogFactory df = new DialogFactory();
 		AppMain.df.setVisible(true);
 

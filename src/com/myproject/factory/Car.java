@@ -24,20 +24,23 @@ public class Car {
 	public Engine getCarEngine() {
 		return carEngine;
 	}
-	public void setCarEngine(Engine carEngine) {
+	public void setCarEngine(Engine carEngine,Worker currentWorker) {
 		this.carEngine = carEngine;
+		AppMain.df.workerSetOutput(currentWorker,carEngine);
 	}
 	public Cab getCarCab() {
 		return carCab;
 	}
-	public void setCarCab(Cab carCab) {
+	public void setCarCab(Cab carCab,Worker currentWorker) {
 		this.carCab = carCab;
+		AppMain.df.workerSetOutput(currentWorker,carCab);
 	}
 	public ¿ccessories getCar¿ccessor() {
 		return car¿ccessor;
 	}
-	public void setCar¿ccessor(¿ccessories car¿ccessor) {
+	public void setCar¿ccessor(¿ccessories car¿ccessor,Worker currentWorker) {
 		this.car¿ccessor = car¿ccessor;
+		AppMain.df.workerSetOutput(currentWorker,car¿ccessor);
 	}
 	public int getID() {
 		return ID;
