@@ -46,7 +46,7 @@ public class DialogFactory extends JFrame {
 
     
     public DialogFactory() {
-        this.setBounds(100, 100, 1500, 900);
+        this.setBounds(100, 100, 600, 900);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //
         centerPanel.add(tLabelC);

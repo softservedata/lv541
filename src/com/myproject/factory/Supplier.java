@@ -8,7 +8,7 @@ public class Supplier extends BaseSupplier<ÀccessoriesWarehouse>  implements Run
 	}
 	@Override
 	public String toString() {
-		return "Supplier [name=" + getName() + "]";
+		return getName();
 	}
 	@Override
 	public void run() {

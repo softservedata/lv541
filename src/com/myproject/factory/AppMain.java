@@ -29,7 +29,7 @@ public class AppMain {
 		}
 
 
-		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ExecutorService service = Executors.newFixedThreadPool(8);
 		service.execute(cs1);
 		service.execute(cs2);
 		service.execute(es1);
@@ -38,12 +38,18 @@ public class AppMain {
 		}
 		service.shutdown();
 		
+		//ExecutorService serviceS = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
+		//for(Supplier s : supplierArray) {
+		//	serviceS.execute(s);	
+		//}
+		//serviceS.shutdown();
+		
 		///*-
-		ExecutorService serviceForProduction = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ExecutorService serviceForProduction = Executors.newFixedThreadPool(3);
 		for(CarProductionWorker production : myFactory.getProduction()) {
 			serviceForProduction.execute(production);	
 		}
-
 		serviceForProduction.shutdown();
 		//*/			
 		/*-
