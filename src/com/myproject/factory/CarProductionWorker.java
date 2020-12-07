@@ -7,7 +7,7 @@ public class CarProductionWorker implements Runnable{
 
 	@Override
 	public void run() {
-		synchronized (AppMain.monitorController) {
+		//synchronized (AppMain.monitorController) {
 			//System.out.println("ddd");
 			
 			Car currentCar = null;
@@ -55,13 +55,13 @@ public class CarProductionWorker implements Runnable{
 				AppMain.df.workerDeleteObject(currentWorker,carEngine);
 				AppMain.df.workerDeleteObject(currentWorker,car¿ccessories);
 				currentCar = null;
-				try {
-					AppMain.monitorController.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				//try {
+				//	AppMain.monitorController.wait();
+				//} catch (InterruptedException e) {
+				//	e.printStackTrace();
+				//}
 			}
-			}
+		//}
 	}
 
 	public CarProductionWorker(Worker currentWorker, Factory factory) {

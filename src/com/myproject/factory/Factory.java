@@ -19,7 +19,7 @@ public class Factory {
 		warehouseEngine = new EngineWarehouse(30);
 		Warehouse¿ccessories = new ¿ccessoriesWarehouse(40);
 		WarehouseCab = new CabWarehouse(20);
-		WarehouseCar = new CarWarehouse(20);
+		WarehouseCar = new CarWarehouse(4);
 		workers = new ArrayList<Worker>();
 		workers.add(new Worker("Ivan",1));
 		workers.add(new Worker("Petro",2));
