@@ -18,9 +18,9 @@ public class Factory {
 	}
 
 	public Factory() {
-		warehouseEngine = new EngineWarehouse(30);
-		Warehouse¿ccessories = new ¿ccessoriesWarehouse(40);
-		WarehouseCab = new CabWarehouse(20);
+		warehouseEngine = new EngineWarehouse(5);
+		Warehouse¿ccessories = new ¿ccessoriesWarehouse(6);
+		WarehouseCab = new CabWarehouse(7);
 		WarehouseCar = new CarWarehouse(4);
 		workers = new ArrayList<Worker>();
 		workers.add(new Worker("Ivan",1));

@@ -1,6 +1,6 @@
 package com.myproject.factory;
 
-public class BaseDetail<T> {
+public abstract class BaseDetail<T> {
 
 	private int id;
 	private T Supplier;

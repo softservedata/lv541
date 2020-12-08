@@ -41,12 +41,13 @@ public class DialogFactory extends JFrame {
     private JList<Object> tOutputWorker3 = new JList<Object>(listModelWorker3);
     private JList<Car> tOutputCar = new JList<Car>(listModelCar);
     private JButton buttonExit = new JButton("Exit");
-    private JPanel centerPanel = new JPanel(new GridLayout(3, 3, 6, 6));
-    private JPanel workPanel = new JPanel(new GridLayout(4, 4, 4, 4));
+    private JPanel centerPanel = new JPanel(new GridLayout(3, 2, 6, 26));
+    private JPanel workPanel = new JPanel(new GridLayout(3, 2, 6, 6));
+    private JPanel salePanel = new JPanel(new GridLayout(3, 1, 6, 6));
 
     
     public DialogFactory() {
-        this.setBounds(100, 100, 600, 900);
+        this.setBounds(100, 100, 1200, 900);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //
         centerPanel.add(tLabelC);
@@ -90,18 +91,21 @@ public class DialogFactory extends JFrame {
         tOutputWorker3.setFocusable(false);
         workPanel.add(new JScrollPane(tOutputWorker3), BorderLayout.CENTER);
         
-        workPanel.add(tLabelCar);
-        workPanel.add(tOutputCar);
+        salePanel.add(tLabelCar);
+        salePanel.add(tOutputCar);
         tOutputCar.setSelectedIndex(4);
         tOutputCar.setFocusable(false);
-        workPanel.add(new JScrollPane(tOutputCar), BorderLayout.CENTER);
+        salePanel.add(new JScrollPane(tOutputCar), BorderLayout.CENTER);
         
       
        // centerPanel.add(buttonExit);
         Container container = this.getContentPane();
-        container.add(centerPanel, BorderLayout.NORTH);
+        container.add(centerPanel, BorderLayout.WEST);
         
         container.add(workPanel, BorderLayout.CENTER);
+        
+        container.add(salePanel, BorderLayout.SOUTH);
+   
         //
 
 
@@ -116,38 +120,65 @@ public class DialogFactory extends JFrame {
         });
     }
 
-    public void cabSetOutput(Cab someCab) {
-
-    	listModelC.addElement(someCab);
-    	int index = listModelC.size() - 1;
-    	tOutputC.setSelectedIndex(index);
-    	tOutputC.ensureIndexIsVisible(index);
+    
+    public void setOutput(Object someObject) {
+    	//engineSetOutput
+    	int index = 0;
+    	if(someObject instanceof Engine) {
+    		listModelE.addElement((Engine) someObject);
+    		index = listModelE.size() - 1;
+    		tOutputE.setSelectedIndex(index);
+    		tOutputE.ensureIndexIsVisible(index);
+    	}
+    	
+    	else if(someObject instanceof ¿ccessories) {
+    		//accessoriesSetOutput
+    		listModelA.addElement((¿ccessories) someObject);
+    		index = listModelA.size() - 1;
+    		tOutputA.setSelectedIndex(index);
+    		tOutputA.ensureIndexIsVisible(index);
+    	}
+    	
+    	else if(someObject instanceof Cab) {
+    		//cabSetOutput
+    		listModelC.addElement((Cab)someObject);
+    		index = listModelC.size() - 1;
+    		tOutputC.setSelectedIndex(index);
+    		tOutputC.ensureIndexIsVisible(index);
+    	}
+    	
+    	else if(someObject instanceof Car) {
+    		//carSetOutput
+    		listModelCar.addElement((Car) someObject);
+    		index = listModelCar.size() - 1;
+    		tOutputCar.setSelectedIndex(index);
+    		tOutputCar.ensureIndexIsVisible(index);
+    	}
     }
     
-    public void carSetOutput(Car someCar) {
+    public void remove(Object someObject) {
 
-    	listModelCar.addElement(someCar);
-    	int index = listModelCar.size() - 1;
-    	tOutputCar.setSelectedIndex(index);
-    	tOutputCar.ensureIndexIsVisible(index);
+    	if(someObject instanceof Cab) {
+    		//cabRemove
+    		listModelC.removeElement(someObject);
+    	}
+    	else if(someObject instanceof Car) {
+    		//carRemove
+    		listModelCar.removeElement(someObject);
+    	}
+    	else if(someObject instanceof ¿ccessories) {
+    		//accessoriesRemove
+    		listModelA.removeElement(someObject);
+    	}
+    	else if(someObject instanceof Engine) {
+    		//engineRemove
+    		listModelE.removeElement(someObject);
+    	}
+
+  
     }
     
-    public void accessoriesSetOutput(¿ccessories some¿ccessories) {
 
-    	listModelA.addElement(some¿ccessories);
-    	int index = listModelA.size() - 1;
-    	tOutputA.setSelectedIndex(index);
-    	tOutputA.ensureIndexIsVisible(index);
-    }
-    
-    public void engineSetOutput(Engine someEngine) {
-
-    	listModelE.addElement(someEngine);
-    	int index = listModelE.size() - 1;
-    	tOutputE.setSelectedIndex(index);
-    	tOutputE.ensureIndexIsVisible(index);
-    }
-    
     public void workerSetOutput(Worker worker, Object someObject) {
     	DefaultListModel<Object> listModel = new DefaultListModel<Object>();
     	JList<Object> tOutput = new JList<Object>();
@@ -181,34 +212,7 @@ public class DialogFactory extends JFrame {
     	listModel.removeElement(someObject);
     }
     
-    public void engineSetOutput(¿ccessories some¿ccessories) {
 
-    	listModelA.addElement(some¿ccessories);
-    	int index = listModelA.size() - 1;
-    	tOutputA.setSelectedIndex(index);
-    	tOutputA.ensureIndexIsVisible(index);
-    }
-  
-    
-    public void cabRemove(Cab someCab) {
-
-    	listModelC.removeElement(someCab);
-    }
-    
-    public void carRemove(Car someCar) {
-
-    	listModelCar.removeElement(someCar);
-    }
-    
-    public void accessoriesRemove(¿ccessories some¿ccessories) {
-
-    	listModelA.removeElement(some¿ccessories);
-    }
-    
-    public void engineRemove(Engine someEngine) {
-
-    	listModelE.removeElement(someEngine);
-    }
 
 
 }
