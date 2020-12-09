@@ -33,7 +33,9 @@ public class CarProductionWorker implements Runnable{
 					
 					if(carCab == null) {
 						carCab = factory.getWarehouseCab().getFromWarehouse();
-						AppMain.df.workerSetOutput(currentWorker,carCab);
+						if(carCab != null) {
+							AppMain.df.workerSetOutput(currentWorker,carCab);
+						}
 						//if(carCab != null) {
 						//	currentCar.setCarCab(carCab,currentWorker);
 						//}
@@ -47,7 +49,9 @@ public class CarProductionWorker implements Runnable{
 				
 					if(carEngine == null) {
 						carEngine = factory.getWarehouseEngine().getFromWarehouse();
-						AppMain.df.workerSetOutput(currentWorker,carEngine);
+						if(carEngine != null) {
+							AppMain.df.workerSetOutput(currentWorker,carEngine);
+						}
 						//if(carEngine != null) {
 						//	currentCar.setCarEngine(carEngine,currentWorker);
 						//}
@@ -60,7 +64,9 @@ public class CarProductionWorker implements Runnable{
 					}
 					if(car¿ccessories == null) {
 						car¿ccessories = factory.getWarehouse¿ccessories().getFromWarehouse();
-						AppMain.df.workerSetOutput(currentWorker,car¿ccessories);
+						if(car¿ccessories != null) {
+							AppMain.df.workerSetOutput(currentWorker,car¿ccessories);
+						}
 						//if(car¿ccessories != null) {
 						//	currentCar.setCar¿ccessor(car¿ccessories,currentWorker);
 						//}
@@ -72,11 +78,11 @@ public class CarProductionWorker implements Runnable{
 					}
 				}
 				currentCar =new Car(carEngine,carCab,car¿ccessories);
-				//synchronized(AppMain.monitorController) {
-				//	System.out.println(AppMain.carNumber);
-				//	AppMain.carNumber = AppMain.carNumber + 1;
-				//	
-				//}
+				synchronized(AppMain.monitorController) {
+					System.out.println(AppMain.carNumber);
+					AppMain.carNumber = AppMain.carNumber + 1;
+					
+				}
 				factory.getWarehouseCar().addToWarehouse(currentCar);
 				AppMain.df.workerDeleteObject(currentWorker,currentCar.getCarCab());
 				AppMain.df.workerDeleteObject(currentWorker,currentCar.getCarEngine());

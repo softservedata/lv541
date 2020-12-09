@@ -35,10 +35,11 @@ public class BaseWarehouse<T>{
 		synchronized (monitor) {
 			try {
 				if(provision.size() < maxNumber) {
-					monitor.notify();
+					//monitor.notify();
 					if (provision.add(someObject)){
 						AppMain.df.setOutput(someObject);
 					}
+					monitor.notify();
 				}else {
 					monitor.wait();
 					return false;
@@ -46,6 +47,8 @@ public class BaseWarehouse<T>{
 			}
 			catch (InterruptedException e) {
 					e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 		return true;	
@@ -63,17 +66,20 @@ public class BaseWarehouse<T>{
 		synchronized (monitor) {
 			try {		
 				if(provision.size() > 0) {
-				monitor.notify();
-				T getObject = provision.get(0);
-				if(provision.remove(getObject)) {
-					AppMain.df.remove(getObject);
-				}
-				return getObject;
+					//monitor.notify();
+					T getObject = provision.get(0);
+					if(provision.remove(getObject)) {
+						AppMain.df.remove(getObject);
+					}
+					monitor.notify();
+					return getObject;
 				}else {
 					monitor.wait();
 					return null;
 				}
 			}catch (InterruptedException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
 				e.printStackTrace();
 			}	
 		}

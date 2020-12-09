@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class AppMain {
-	//public static Object monitorController = new Object();
+	public static Object monitorController = new Object();
 	public static DialogFactory df = new DialogFactory();
 	public static int carNumber = 1;
 	public static int cabNumber = 1;
