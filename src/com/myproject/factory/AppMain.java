@@ -41,7 +41,8 @@ public class AppMain {
 		service.shutdown();
 		
 		myFactory.startProduction();
-		
+			
+		AppMain.df.setVisible(true);	
 		//ExecutorService serviceS = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 		//for(Supplier s : supplierArray) {
@@ -65,7 +66,7 @@ public class AppMain {
 		
 
        // DialogFactory df = new DialogFactory();
-		AppMain.df.setVisible(true);
+
 
        
 
