@@ -13,10 +13,15 @@ public class Engine extends BaseDetail<EngineSupplier>{
 			super(supplier);
 		}
 		
+		public Engine(EngineSupplier supplier, int id) {
+			super(supplier, id);
+		}
+		
 		@Override
 		public int getRandomID() {
 	        //Random random = new Random();
 			return (int) (1000+Math.random()*5000);
 		}
+		
 
 }

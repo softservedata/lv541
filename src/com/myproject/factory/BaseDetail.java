@@ -30,6 +30,11 @@ public abstract class BaseDetail<T> {
 		this.Supplier = supplier;
 	}
 	
+	public BaseDetail(T supplier, int id) {
+		this.id = id;
+		this.Supplier = supplier;
+	}
+	
 	public int getRandomID() {
         //Random random = new Random();
 		return (int) (1000+Math.random()*5000);

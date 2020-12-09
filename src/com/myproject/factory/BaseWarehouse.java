@@ -31,24 +31,24 @@ public class BaseWarehouse<T>{
 		return monitor;
 	}
 
-	public void addToWarehouse(T someObject) {
+	public boolean addToWarehouse(T someObject) {
 		synchronized (monitor) {
-
-			if(provision.size() < maxNumber) {
-				monitor.notify();
-				if (provision.add(someObject)){
-					AppMain.df.setOutput(someObject);
-				}
-
-			}else {
-				try {
+			try {
+				if(provision.size() < maxNumber) {
+					monitor.notify();
+					if (provision.add(someObject)){
+						AppMain.df.setOutput(someObject);
+					}
+				}else {
 					monitor.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+					return false;
 				}
 			}
+			catch (InterruptedException e) {
+					e.printStackTrace();
+			}
 		}
-		
+		return true;	
 	}
 
 
@@ -61,19 +61,21 @@ public class BaseWarehouse<T>{
 	
 	public T getFromWarehouse() {
 		synchronized (monitor) {
-			if(provision.size() > 0) {
+			try {		
+				if(provision.size() > 0) {
 				monitor.notify();
 				T getObject = provision.get(0);
 				if(provision.remove(getObject)) {
 					AppMain.df.remove(getObject);
 				}
 				return getObject;
-			}
-			try {
-				monitor.wait();
-			} catch (InterruptedException e) {
+				}else {
+					monitor.wait();
+					return null;
+				}
+			}catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			}	
 		}
 		return null;
 	}

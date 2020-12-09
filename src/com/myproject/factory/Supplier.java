@@ -12,21 +12,21 @@ public class Supplier extends BaseSupplier<ÀccessoriesWarehouse>  implements Run
 	}
 	@Override
 	public void run() {
-		
+		Thread.currentThread().setName("Àccessories Supplier "+getName());
 		// generate cabs
 		int count = 0;
         while (count < getCountProdution()) {
-        	Àccessories nc = new Àccessories(this);    	
+        	//Àccessories nc = new Àccessories(this); 
+        	Àccessories nc = new Àccessories(this,count);  	
         	ÀccessoriesWarehouse Warehouse = (ÀccessoriesWarehouse) getWarehouse();
-        	Warehouse.addToWarehouse(nc);
-        	
-        	//System.out.println(getName()+" deliver "+nc);
-            count++;
-            try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+        	if(Warehouse.addToWarehouse(nc)) {
+        		count++;
+        		try {
+        			Thread.sleep(100);
+        			} catch (InterruptedException e) {
+        				e.printStackTrace();
+        			}
+        	}
         }
 		
 	}

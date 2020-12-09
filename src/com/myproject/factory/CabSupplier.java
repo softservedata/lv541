@@ -15,21 +15,22 @@ public class CabSupplier extends BaseSupplier<CabWarehouse> implements Runnable{
 	
 	@Override
 	public void run() {
-		
+		Thread.currentThread().setName("Cab Supplier "+getName());
 		// generate cabs
 		int count = 0;
         while (count < getCountProdution()) {
-        	Cab nc = new Cab(this);
+        	//Cab nc = new Cab(this);
+        	Cab nc = new Cab(this,count);
         	CabWarehouse Warehouse = (CabWarehouse) getWarehouse();
  
-        	Warehouse.addToWarehouse(nc);
-        	//System.out.println("Provider "+getName()+" deliver "+nc);
-            count++;
-            try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+        	if(Warehouse.addToWarehouse(nc)) {
+        		count++;
+        		try {
+        			Thread.sleep(100);
+        		} catch (InterruptedException e) {
+        			e.printStackTrace();
+        		}
+        	}
         }
 		
 	}

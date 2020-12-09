@@ -14,6 +14,15 @@ public class Car {
 		car¿ccessor = null;
 		ID = getRandomID();
 	}
+	
+	public Car(Engine carEngine, Cab carCab, ¿ccessories car¿ccessor) {
+		super();
+		this.carEngine = carEngine;
+		this.carCab = carCab;
+		this.car¿ccessor = car¿ccessor;
+		ID = getRandomID();
+	}
+
 	//public Car(Engine carEngine, Cab carCab, ¿ccessories car¿ccessor) {
 	//	super();
 	//	this.carEngine = carEngine;
@@ -24,23 +33,20 @@ public class Car {
 	public Engine getCarEngine() {
 		return carEngine;
 	}
-	public void setCarEngine(Engine carEngine,Worker currentWorker) {
+	public void setCarEngine(Engine carEngine) {
 		this.carEngine = carEngine;
-		AppMain.df.workerSetOutput(currentWorker,carEngine);
 	}
 	public Cab getCarCab() {
 		return carCab;
 	}
-	public void setCarCab(Cab carCab,Worker currentWorker) {
+	public void setCarCab(Cab carCab) {
 		this.carCab = carCab;
-		AppMain.df.workerSetOutput(currentWorker,carCab);
 	}
 	public ¿ccessories getCar¿ccessor() {
 		return car¿ccessor;
 	}
-	public void setCar¿ccessor(¿ccessories car¿ccessor,Worker currentWorker) {
+	public void setCar¿ccessor(¿ccessories car¿ccessor) {
 		this.car¿ccessor = car¿ccessor;
-		AppMain.df.workerSetOutput(currentWorker,car¿ccessor);
 	}
 	public int getID() {
 		return ID;
@@ -49,11 +55,12 @@ public class Car {
 		ID = iD;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return "Car [ID=" + ID +"]";
+		return "Car [" + ID+ "]";
 	}
-	
 	private int getRandomID() {
         //Random random = new Random();
 		//return random.nextInt();

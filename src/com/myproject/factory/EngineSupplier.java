@@ -13,21 +13,22 @@ public class EngineSupplier extends BaseSupplier<EngineWarehouse> implements Run
 	
 	@Override
 	public void run() {
-		
+		Thread.currentThread().setName("Engine Supplier "+getName());
 		// generate cabs
 		int count = 0;
         while (count < getCountProdution()) {
-        	Engine nc = new Engine(this);
+        	//Engine nc = new Engine(this);
+        	Engine nc = new Engine(this,count);
         	EngineWarehouse Warehouse = (EngineWarehouse) getWarehouse();
  
-        	Warehouse.addToWarehouse(nc);
-        	//System.out.println("Provider "+getName()+" deliver "+nc);
-            count++;
-            try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+        	if(Warehouse.addToWarehouse(nc)){
+        		count++;
+        		try {
+        			Thread.sleep(100);
+        		} catch (InterruptedException e) {
+        			e.printStackTrace();
+        		}
+        	}
         }
 		
 	}
